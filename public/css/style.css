@@ -1,19 +1,19 @@
 
 body{
 /*for google chrome*/
-background: -webkit-gradient(linear ,0 1200, 2000 1200,from(000), to(#fff));
+/*background: -webkit-linear-gradient(top,#ed786a 26%,#fff,transparent) !important;*/
 
 }
 
 #wrapper {
 	margin:auto;
-    width:80%;
 
 	/*background-color: gray;*/
 }
 #header{
-	height: 140px;
-	background-color: rgba(221, 239, 242, 0.78);
+	height: 120px;
+	background-color: #f3f3f3;
+    box-shadow: 0px 4px 33px #888888;
 
 }
 #logo1{
@@ -134,6 +134,7 @@ div{
 }
 .content{
     margin:auto;
+    padding: 0 2em 0 2em;
     
     
 }
