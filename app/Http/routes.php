@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function() {
-		return view('home');
-	});
+//Route::resource('/', 'HomeController');
+Route::get('/', 'HomeController@createApplicant');
+Route::post('/', 'HomeController@storeApplicant');
+
+//Route::resource('formfill', 'FormfillController');

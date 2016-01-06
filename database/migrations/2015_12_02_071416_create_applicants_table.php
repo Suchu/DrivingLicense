@@ -20,8 +20,17 @@ class CreateApplicantsTable extends Migration
             $table->string('address');
             $table->string('gender');
             $table->string('email');
-            $table->integer('mobile_no');
+            $table->integer('phone');
+            $table->string('education');
+            $table->string('citizenship');
+            $table->string('age');
+            $table->string('bloodgroup');
+            $table->string('institution');
+            $table->string('trainer');
             $table->string('vehicle_type');
+            $table->string('date');
+            $table->string('fee');
+            
             $table->string('status');
             $table->string('license_type');
             //image
