@@ -18,7 +18,12 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+<<<<<<< HEAD
     {return view('home'); 
+=======
+    {
+        return view('home');
+>>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
     }
 
     /**
@@ -26,7 +31,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
    
+=======
+    public function createApplicant()
+    {
+        
+       //
+        
+    }
+>>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
 
     /**
      * Store a newly created resource in storage.
@@ -34,9 +48,9 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeApplicant(Applicant $applicant, ApplicationFormRequest $request)
+    public function store(Request $request)
     {
-        return Response::make('Applicant added!');
+        
     }
 
     /**

@@ -29,4 +29,4 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 //Route::resource('/', 'HomeController');
 
 
-//Route::resource('formfill', 'FormfillController');
+Route::resource('formfill', 'FormfillController');
