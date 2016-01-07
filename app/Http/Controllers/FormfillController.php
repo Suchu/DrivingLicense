@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Http\Requests\ApplicantForm;
+
+use Input;
+use App\Applicant;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ApplicantForm;
 use App\Applicant;
@@ -20,6 +24,10 @@ class FormfillController extends Controller
     public function form()
     {
        return view('home');
+<<<<<<< HEAD
+        
+=======
+>>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
     }
 
     /**
@@ -27,10 +35,26 @@ class FormfillController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    
+    public function store(Applicant $appl, ApplicantForm $request)
     {
-        //
+       $a = $appl->create($request->all());die;
+       return 'done';
+
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    // public function store()
+    // {
+    //     $fill = Input::all();
+    //    return 'done';
+        
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -38,6 +62,13 @@ class FormfillController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
+    // public function store(Applicant $applicant, Request $request)
+    // {
+    //     $a = $applicant->create($request->all());die;
+    //    return 'done';
+    // }
+=======
     public function store(Applicant $appl, ApplicantForm $request)
     {
        
@@ -62,6 +93,7 @@ class FormfillController extends Controller
     //define the image paths
 
 
+>>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
 
     /**
      * Display the specified resource.

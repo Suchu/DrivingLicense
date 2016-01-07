@@ -14,7 +14,7 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('admin', 'AdminController@index');
-
+Route::resource('formfill','FormfillController');
 // Route::get('/', function(){
 // 	echo 'Welcome to admin Panel';
 // });
