@@ -1341,7 +1341,12 @@
 		text-transform: uppercase;
 		color: #888;
 		display: block;
-		margin: 0 0 1em 0;
+		margin: 0px 0 1em 46px;
+    	position: relative;
+    	right: 385px;
+    	text-align: left;
+    	top: 60px;
+    	/*width: 600px;*/
 	}
 
 	form input[type="text"],
@@ -1456,6 +1461,7 @@
 		transition: all 0.25s ease-in-out;
 		-webkit-appearance: none;
 		position: relative;
+		top: 100px;
 		display: inline-block;
 		background: #ed786a;
 		color: #fff !important;
@@ -2502,11 +2508,15 @@
 	/*.form-group{
 		width: 50%;
 	}*/
-	/*@media (max-width: 400px) {
+	@media screen and (min-width: 500px) {
   	.form-group {
-    margin-bottom: 5px;
+    width: 500px !important;
+    /*float: right;*/
+    position: relative;
+    left: 300px;
+    margin-bottom: -11px !important;
 
-  }*/
+  }
 	/*.btn-default{
 		background-color: #ed786a !important;
 		padding: 1em 5em 1em 3em !important;

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Http\Requests\ApplicantForm;
+
+use Input;
+use App\Applicant;
 use App\Http\Controllers\Controller;
 
 class FormfillController extends Controller
@@ -13,9 +17,10 @@ class FormfillController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function form()
     {
-       // return view('home');
+       return view('home');
+        
     }
 
     /**
@@ -23,10 +28,26 @@ class FormfillController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    
+    public function store(Applicant $appl, ApplicantForm $request)
     {
-        //
+       $a = $appl->create($request->all());die;
+       return 'done';
+
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    // public function store()
+    // {
+    //     $fill = Input::all();
+    //    return 'done';
+        
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -34,10 +55,11 @@ class FormfillController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    // public function store(Applicant $applicant, Request $request)
+    // {
+    //     $a = $applicant->create($request->all());die;
+    //    return 'done';
+    // }
 
     /**
      * Display the specified resource.

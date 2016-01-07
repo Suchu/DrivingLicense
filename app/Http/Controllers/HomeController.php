@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Input;
+
 use App\Http\Controllers\Controller;
 use App\Applicant;
 
@@ -16,8 +18,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //return view('home');
+    {return view('home'); 
     }
 
     /**
@@ -25,12 +26,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function createApplicant()
-    {
-        
-        return view('home'); 
-        
-    }
+   
 
     /**
      * Store a newly created resource in storage.
@@ -49,6 +45,12 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function postIndex()
+    {
+        $fill = Input::all();
+        return 'done';
+        
+    }
     public function show($id)
     {
         //
