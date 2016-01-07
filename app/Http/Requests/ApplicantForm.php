@@ -26,16 +26,17 @@ class ApplicantForm extends Request
     {
         return [
             'firstname' => 'required',
-            'lastname' => 'required',
-            'address' => 'required',
-            'gender' => 'required',
-            'email' => 'required|email|unique:users'
-            'phone' => 'required',
-            'education' => 'required',
-            'citizenship' => 'required',
-            'age' => 'required',
-            'bloodgroup' => 'required',
-            'lastname' => 'required',
+            //'image' => 'required | mimes:jpeg,jpg,bmp,png | max:1000',
+            // 'lastname' => 'required',
+            // 'address' => 'required',
+            // 'gender' => 'required',
+            // 'email' => 'required|email|unique:users'
+            // 'phone' => 'required',
+            // 'education' => 'required',
+            // 'citizenship' => 'required',
+            // 'age' => 'required',
+            // 'bloodgroup' => 'required',
+            // 'lastname' => 'required',
         ];
     }
 }

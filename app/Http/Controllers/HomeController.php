@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //return view('home');
+        return view('home');
     }
 
     /**
@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function createApplicant()
     {
         
-        return view('home'); 
+       //
         
     }
 
@@ -38,9 +38,9 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeApplicant(Applicant $applicant, ApplicationFormRequest $request)
+    public function store(Request $request)
     {
-        return Response::make('Applicant added!');
+        
     }
 
     /**
