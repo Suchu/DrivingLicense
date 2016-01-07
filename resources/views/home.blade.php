@@ -40,12 +40,26 @@
                   {!! Form::text('lastname')!!}@if ($errors->has('lastname'))<p style="color:red;">{!!$errors->last('lastname')!!}</p>@endif<br><br>
                 </div>
                 <div class="form-group">
-                  {!! Form::label('Address') !!}
-                  {!! Form::text('address')!!}<br><br>
+                  {!! Form::label('Please upload your passport sized image') !!}
+
+                  {!! Form::file('image'); !!}<br><br>
+                </div>
+
+                <div class="form-group">
+                  {!! Form::label('Permanent Address') !!}
+                  {!! Form::text('per_address')!!}<br><br>
+                </div>
+                <div class="form-group">
+                  {!! Form::label('Temporary Address') !!}
+                  {!! Form::text('temp_address')!!}<br><br>
+                </div>
+                <div class="form-group">
+                  {!! Form::label('Occupation') !!}
+                  {!! Form::text('occupation')!!}<br><br>
                 </div>
                 <div class="form-group">
                   {!! Form::label('Gender:') !!}
-                  {!! Form::radio('gender')!!}{!! Form::label('Male') !!}{!! Form::radio('gender')!!}{!! Form::label('Female')!!}<br><br>
+                  {!! Form::radio('gender','male')!!}{!! Form::label('Male') !!}{!! Form::radio('gender','female')!!}{!! Form::label('Female')!!}<br><br>
                 </div>
                 <div class="form-group">
                   {!! Form::label('Email Address:') !!}
@@ -56,23 +70,27 @@
                   {!! Form::text('phone')!!}<br><br>
                 </div>
                 <div class="form-group">
-                  {!! Form::label('Education') !!}
+                  {!! Form::label('Mobile number:') !!}
+                  {!! Form::text('mobile')!!}<br><br>
+                </div>
+                <div class="form-group">
+                  {!! Form::label('Education Qualification') !!}
                   {!! Form::text('education')!!}<br><br>
                 </div>
                 <div class="form-group">
-                  {!! Form::label('Citizenship') !!}
+                  {!! Form::label('Citizenship Number') !!}
                   {!! Form::text('citizenship')!!}<br><br>
                 </div>
                 <div class="form-group">
                   {!! Form::label('Age') !!}
-                  {!! Form::text('age')!!}<br><br>
+                  {!! Form::text('age') !!}<br><br>
                 </div>
                 <div class="form-group">
                   {!! Form::label('Bloodgroup') !!}
                   {!! Form::text('bloodgroup')!!}<br><br>
                 </div>
                 <div class="form-group">
-                  {!! Form::label("Father's Name/ Husband's Name") !!}
+                  {!! Form::label("Father's Name/ Husband's Name and Address") !!}
                   {!! Form::text('relative')!!}<br><br>
                 </div>
                 <div class="form-group">
@@ -85,9 +103,9 @@
                 </div>
                 <div class="form-group">
                   {!! Form::label('Name of the vehicle you want to get driving license for:') !!}
-                  {!! Form::radio('vehicle_type')!!}{!! Form::label('motorbike, scooter')!!}{!! Form::radio('vehicle_type')!!}{!! Form::label('car, jeep, van')!!}
-                  {!! Form::radio('vehicle_type')!!}  {!! Form::label('Tempo, Auto Riksa')!!}{!! Form::radio('vehicle_type')!!}{!! Form::label('Tractor')!!}
-                  {!! Form::radio('vehicle_type')!!}{!! Form::label('Mini bus, Mini Truck')!!}{!! Form::radio('vehicle_type')!!}{!! Form::label('Bus, Truck, Lorry')!!}<br><br>
+                  {!! Form::select('vehicle_type', array('motorbike,scooter' => 'motorbike, scooter', 'car, jeep, van' => 'car, jeep, van',
+                  'Tempo, Auto Riksa'=> 'Tempo, Auto Riksa', 'Tractor' =>'Tractor','Mini bus, Mini Truck'=>'Mini bus, Mini Truck',
+                  'Bus, Truck, Lorry'=>'Bus, Truck, Lorry'), null, ['placeholder' => 'Pick a vehicle type']) !!}<br><br>
                 </div>
                 <div class="form-group">
                   {!! Form::label('Date:') !!}
