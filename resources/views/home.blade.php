@@ -46,10 +46,6 @@
                   {!! Form::label('Gender:') !!}
                   Male {!! Form::radio('gender','male')!!} &nbsp &nbsp Female  {!! Form::radio('gender','female')!!}@if ($errors->has('gender'))<p style="color:red;">{!!$errors->first('gender')!!}</p>@endif
                 </div>
-                <div class="form-group">
-                  {!! Form::label('ppimage','Image name') !!}
-                  {!! Form::text('ppimage')!!}
-                </div>
 
                 <div class="form-group">
                   {!! Form::label('ppimg_filename','Please upload your passport sized image') !!}
@@ -61,18 +57,9 @@
                 <div class="form-group">
                   {!! Form::label('Permanent Address') !!}
 
-                  {!! Form::text('per_address')!!}
+                   {!! Form::text('per_address')!!}<br>@if ($errors->has('per_address'))<p style="color:red;">{!!$errors->first('per_address')!!}</p>@endif
                 </div>
-                <div class="form-group">
-                  {!! Form::label('Temporary Address') !!}
-                  {!! Form::text('temp_address')!!}
-                </div>
-                <div class="form-group">
-                  {!! Form::label('Occupation') !!}
-                  {!! Form::text('occupation')!!}
-
-                  {!! Form::text('per_address')!!}<br>@if ($errors->has('per_address'))<p style="color:red;">{!!$errors->first('per_address')!!}</p>@endif
-                </div>
+               
                 <div class="form-group">
                   {!! Form::label('Temporary Address') !!}
                   {!! Form::text('temp_address')!!}<br>@if ($errors->has('temp_address'))<p style="color:red;">{!!$errors->first('temp_address')!!}</p>@endif
@@ -146,8 +133,7 @@
                 </div>
                
                 <div class="form-group">
-                {!! Form:: submit('submit',null,['class'=> 'form-button-submit button icon fa-envelope'])!!}
-                </div>
+                
                   {!! Form::label('Name of the vehicle you want to get driving license for:') !!}
 
                   {!! Form::select('vehicle_type', array('0'=>'Pick a vehicle type','motorbike,scooter' => 'motorbike, scooter', 'car, jeep, van' => 'car, jeep, van',
@@ -156,10 +142,10 @@
 
                 </div>
                 
-               
-
-                {!! Form:: submit('submit')!!}
-
+               <div class="form-group">
+                
+                {!! Form:: submit('submit',null,['class'=> 'form-button-submit button icon fa-envelope'])!!}
+                </div>
                 {!! Form::close()!!}
                 <!--@if(Session::has('flash_message'))
                   <div class="alert alert-success">
