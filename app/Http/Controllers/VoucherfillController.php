@@ -3,28 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
+//use App\Http\Requests\ApplicantForm;
+use Carbon\Carbon;
 use Input;
-
-use App\Http\Controllers\Controller;
+use App\Voucher;
 use App\Applicant;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
-
-class HomeController extends Controller
+class VoucherfillController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id=null)
+    {
+        if($id == null){
+            return '404';
+        }
 
-
-    { 
-        return view('home'); 
-
-    
-
+        return view('voucher')->with(['id'=>$id]);
     }
 
     /**
@@ -32,14 +32,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-
     public function create()
-
     {
-        
-       //
-        
+        //
     }
 
     /**
@@ -48,9 +43,24 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Voucher $vou)
     {
+
+       $data = array(
+              'voucher_date' => $request->input('date'),
+              'voucher_id' => $request->input('voucher_id'),
+              'applicants_id' => $request->input('applicants_id'),
+
+              //'vImage' => $request['voucher_image']
+
+          );
+       //to call upload function for image upload from Applicant.php
+     //   $app = new Applicant;
+     // $dest = $app->upload($request->file('asddf'))
+
+        $vou->insert($data);
         
+        return Redirect::to('home');
     }
 
     /**
@@ -59,12 +69,6 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function postIndex()
-    {
-        $fill = Input::all();
-        return 'done';
-        
-    }
     public function show($id)
     {
         //
@@ -78,7 +82,8 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-        //
+       //
+
     }
 
     /**

@@ -93,6 +93,7 @@ class AuthController extends Controller
     $user_input = $request->all();
     $user_input['password'] = bcrypt($request->input('password'));
     $user = User::create($user_input);
+    
 
     return 'user lists';
 

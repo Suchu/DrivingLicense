@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Requests;
-
 use App\Http\Requests\Request;
+use validator;
+//use App\Providers\ValidatorServiceProvider;
 
 
 class ApplicantForm extends Request
@@ -14,7 +15,8 @@ class ApplicantForm extends Request
      */
     public function authorize()
     {
-        return true;
+       return true;
+        
     }
 
     /**
@@ -25,6 +27,7 @@ class ApplicantForm extends Request
     public function rules()
     {
         return [
+
             // 'firstname' => 'required',
 
             //'image' => 'required | mimes:jpeg,jpg,bmp,png | max:1000',
@@ -39,6 +42,30 @@ class ApplicantForm extends Request
             // 'age' => 'required',
             // 'bloodgroup' => 'required',
             // 'lastname' => 'required',
+
+             // 'firstname' => 'required|max:50|alpha',
+             // 'lastname' => 'required|alpha',
+             // //'image' => 'required ',             
+             // 'per_address' => 'required|string|min:10',
+             // 'temp_address' => 'required|string|min:5',
+             // 'occupation' => 'required',
+             // 'gender' => 'required|in:male,female',
+             // 'email' => 'required|email|min:6|max:200|unique:users',
+             // 'phone' => 'required|numeric|digits_between:8,25',
+             // 'mobile'=>'numeric|digits_between:8,25|nepal_phone',
+             // 'education' => 'required',
+             // 'citizenship' => 'required|numeric|min:3',
+             // 'age' => 'required|numeric|min:18',
+             // 'bloodgroup' => 'required',
+             // 'relative' => 'required|',
+             // 'vehicle_type' => 'required',           
+             
+
+           
+
         ];
     }
+     // Here we can do more with the validation instance...
+
 }
+
