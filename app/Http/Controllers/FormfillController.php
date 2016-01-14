@@ -29,7 +29,7 @@ class FormfillController extends Controller
      */
 
   
-    public function form()
+    public function index()
     {
        return view('home');
 
@@ -59,7 +59,7 @@ class FormfillController extends Controller
     } catch (\Exception $e) {
         return $e->getMessage();
     }
-
+  }
 
     
     public function upload() {
@@ -76,43 +76,43 @@ class FormfillController extends Controller
      */
 
 
-    public function store(Applicant $appl, ApplicantForm $request)
-    {
-        $input = $request->all();
-        $destinationPath = "";
-        if($request->hasFile('ppimg_filename'))
-        {
-            $destinationPath = $appl->upload($request->file('ppimg_filename'));
+    // public function store(Applicant $appl, ApplicantForm $request)
+    // {
+    //     $input = $request->all();
+    //     $destinationPath = "";
+    //     if($request->hasFile('ppimg_filename'))
+    //     {
+    //         $destinationPath = $appl->upload($request->file('ppimg_filename'));
 
-            // return ['message'=>file_exists($destinationPath)];
-            // if(!file_exists($destinationPath)){
-            //     mkdir($destinationPath, 0777, true);
-            // }
+    //         // return ['message'=>file_exists($destinationPath)];
+    //         // if(!file_exists($destinationPath)){
+    //         //     mkdir($destinationPath, 0777, true);
+    //         // }
 
-            // $file = $request->file('ppimg_filename');
-            //$filename = $file->getClientOriginalName();
-            //$request->file('ppimg_filename')->move($destinationPath, $filename);
-        }
-        $input['ppimg_filename'] = $destinationPath;
+    //         // $file = $request->file('ppimg_filename');
+    //         //$filename = $file->getClientOriginalName();
+    //         //$request->file('ppimg_filename')->move($destinationPath, $filename);
+    //     }
+    //     $input['ppimg_filename'] = $destinationPath;
 
-        $a=$appl->create($input);
+    //     $a=$appl->create($input);
 
-        // $a['ppimg_filename'] = $filename;
-        return 'done';
+    //     // $a['ppimg_filename'] = $filename;
+    //     return 'done';
   
 
-       //$a=$appl->create($request->all());
-       //return view('applicant_display')->with('applicants', $a);
-        // Session::flash('flash_message', 'Task successfully added!');
+    //    //$a=$appl->create($request->all());
+    //    //return view('applicant_display')->with('applicants', $a);
+    //     // Session::flash('flash_message', 'Task successfully added!');
 
-        // return redirect()->back();
-        //send mail to the user
-        // link = <base_url>/voucher/store/$a->id;
+    //     // return redirect()->back();
+    //     //send mail to the user
+    //     // link = <base_url>/voucher/store/$a->id;
 
 
        
 
-    } 
+    // } 
 
 
 
