@@ -18,12 +18,10 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-<<<<<<< HEAD
-    {return view('home'); 
-=======
+
     {
         return view('home');
->>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
+
     }
 
     /**
@@ -31,16 +29,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-   
-=======
-    public function createApplicant()
+
+    public function create()
     {
         
        //
         
     }
->>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
+
 
     /**
      * Store a newly created resource in storage.

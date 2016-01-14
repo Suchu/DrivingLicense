@@ -19,16 +19,17 @@
               
 			  </nav>
 		   </div>
-	
+	</div>
        <div id="form1">
           <div id="features-wrapper">
   
              <section id="features" class="container">
                <header>
                  <h2> Fill the form</h2>
-               </header>             
+               </header>       
+                 
         
-                {!! Form::open(array('url'=> 'formfill')) !!}
+                {!! Form::open(array('url'=> 'formfill', 'files'=>true  )) !!}
                 {!! Form::hidden('invisible', 'id', array('id' => 'invisible_id'))!!}
                 
                 
@@ -39,88 +40,75 @@
                 </div>
                 <div class="form-group">
                   {!! Form::label('Last Name') !!}
-                  {!! Form::text('lastname')!!}@if ($errors->has('lastname'))<p style="color:red;">{!!$errors->last('lastname')!!}</p>@endif
+                  {!! Form::text('lastname')!!}@if ($errors->has('lastname'))<p style="color:red;">{!!$errors->first('lastname')!!}</p>@endif
                 </div>
-                <div class="form-group">
-<<<<<<< HEAD
-                  {!! Form::label('Address') !!}
-                  {!! Form::text('address')!!}
-                </div>
+             
                 <div class="form-group">
                   {!! Form::label('Gender:') !!}
-                  Male {!! Form::radio('gender')!!} &nbsp &nbsp Female  {!! Form::radio('gender')!!}
-=======
-                  {!! Form::label('Please upload your passport sized image') !!}
+                  Male {!! Form::radio('gender','male')!!} &nbsp &nbsp Female  {!! Form::radio('gender','female')!!}@if ($errors->has('gender'))<p style="color:red;">{!!$errors->first('gender')!!}</p>@endif
+                </div>
+                <div class="form-group">
+                  {!! Form::label('ppimage','Image name') !!}
+                  {!! Form::text('ppimage')!!}
+                </div>
 
-                  {!! Form::file('image'); !!}<br><br>
+                <div class="form-group">
+                  {!! Form::label('ppimg_filename','Please upload your passport sized image') !!}
+
+                  {!! Form::file('ppimg_filename')!!}<br><br>@if ($errors->has('ppimg_filename'))<p style="color:red;">{!!$errors->first('ppimg_filename')!!}</p>@endif
                 </div>
 
                 <div class="form-group">
                   {!! Form::label('Permanent Address') !!}
-                  {!! Form::text('per_address')!!}<br><br>
+                  {!! Form::text('per_address')!!}<br><br>@if ($errors->has('per_address'))<p style="color:red;">{!!$errors->first('per_address')!!}</p>@endif
                 </div>
                 <div class="form-group">
                   {!! Form::label('Temporary Address') !!}
-                  {!! Form::text('temp_address')!!}<br><br>
+                  {!! Form::text('temp_address')!!}<br><br>@if ($errors->has('temp_address'))<p style="color:red;">{!!$errors->first('temp_address')!!}</p>@endif
                 </div>
                 <div class="form-group">
                   {!! Form::label('Occupation') !!}
-                  {!! Form::text('occupation')!!}<br><br>
+                  {!! Form::text('occupation')!!}<br><br>@if ($errors->has('occupation'))<p style="color:red;">{!!$errors->first('occupation')!!}</p>@endif
                 </div>
-                <div class="form-group">
-                  {!! Form::label('Gender:') !!}
-                  {!! Form::radio('gender','male')!!}{!! Form::label('Male') !!}{!! Form::radio('gender','female')!!}{!! Form::label('Female')!!}<br><br>
->>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
-                </div>
+                
                 <div class="form-group">
                   {!! Form::label('Email Address:') !!}
-                  {!! Form::text('email')!!}
+                  {!! Form::email('email')!!}@if ($errors->has('email'))<p style="color:red;">{!!$errors->first('email')!!}</p>@endif
                 </div>
                 <div class="form-group">
                   {!! Form::label('Phone number:') !!}
-                  {!! Form::text('phone')!!}
+                  {!! Form::text('phone')!!}@if ($errors->has('phone'))<p style="color:red;">{!!$errors->first('phone')!!}</p>@endif
                 </div>
-                <div class="form-group">
-<<<<<<< HEAD
-                  {!! Form::label('Education') !!}
-                  {!! Form::text('education')!!}
-                </div>
-                <div class="form-group">
-                  {!! Form::label('Citizenship') !!}
-                  {!! Form::text('citizenship')!!}
-                </div>
+
+                
                 <div class="form-group">
                   {!! Form::label('Age') !!}
-                  {!! Form::text('age')!!}
-=======
+                  {!! Form::text('age' )!!}@if ($errors->has('age'))<p style="color:red;">{!!$errors->first('age')!!}</p>@endif
+                </div>
+                <div class="form-group">
                   {!! Form::label('Mobile number:') !!}
-                  {!! Form::text('mobile')!!}<br><br>
+                  {!! Form::text('mobile', old('mobile'), ['placeholder' => 'Enter Nepal mobile number'])!!}@if ($errors->has('mobile'))<p style="color:red;">{!!$errors->first('mobile')!!}</p>@endif
                 </div>
                 <div class="form-group">
                   {!! Form::label('Education Qualification') !!}
-                  {!! Form::text('education')!!}<br><br>
+                  {!! Form::text('education')!!}@if ($errors->has('education'))<p style="color:red;">{!!$errors->first('education')!!}</p>@endif
                 </div>
                 <div class="form-group">
                   {!! Form::label('Citizenship Number') !!}
-                  {!! Form::text('citizenship')!!}<br><br>
+                  {!! Form::text('citizenship')!!}@if ($errors->has('citizenship'))<p style="color:red;">{!!$errors->first('citizenship')!!}</p>@endif
                 </div>
-                <div class="form-group">
-                  {!! Form::label('Age') !!}
-                  {!! Form::text('age') !!}<br><br>
->>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
-                </div>
+                
                 <div class="form-group">
                   {!! Form::label('Bloodgroup') !!}
-                  {!! Form::text('bloodgroup')!!}
+                  {!! Form::text('bloodgroup')!!}@if ($errors->has('bloodgroup'))<p style="color:red;">{!!$errors->first('bloodgroup')!!}</p>@endif
                 </div>
                 <div class="form-group">
-<<<<<<< HEAD
-                  {!! Form::label("Father's Name/ Husband's Name") !!}
-                  {!! Form::text('relative')!!}
-=======
+
+                 
+
                   {!! Form::label("Father's Name/ Husband's Name and Address") !!}
-                  {!! Form::text('relative')!!}<br><br>
->>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
+                  {!! Form::text('relative')!!}@if ($errors->has('relative'))<p style="color:red;">{!!$errors->first('relative')!!}</p>@endif
+
                 </div>
                 <div class="form-group">
                   {!! Form::label('Name of the institution you trained from') !!}
@@ -132,27 +120,24 @@
                 </div>
                 <div class="form-group">
                   {!! Form::label('Name of the vehicle you want to get driving license for:') !!}
-<<<<<<< HEAD
-                  {!! Form::radio('vehicle_type')!!}{!! Form::label('motorbike, scooter')!!}{!! Form::radio('vehicle_type')!!}{!! Form::label('car, jeep, van')!!}
-                  {!! Form::radio('vehicle_type')!!}  {!! Form::label('Tempo, Auto Riksa')!!}{!! Form::radio('vehicle_type')!!}{!! Form::label('Tractor')!!}
-                  {!! Form::radio('vehicle_type')!!}{!! Form::label('Mini bus, Mini Truck')!!}{!! Form::radio('vehicle_type')!!}{!! Form::label('Bus, Truck, Lorry')!!}
-=======
-                  {!! Form::select('vehicle_type', array('motorbike,scooter' => 'motorbike, scooter', 'car, jeep, van' => 'car, jeep, van',
+
+                  
+
+                  {!! Form::select('vehicle_type', array('0'=>'Pick a vehicle type','motorbike,scooter' => 'motorbike, scooter', 'car, jeep, van' => 'car, jeep, van',
                   'Tempo, Auto Riksa'=> 'Tempo, Auto Riksa', 'Tractor' =>'Tractor','Mini bus, Mini Truck'=>'Mini bus, Mini Truck',
-                  'Bus, Truck, Lorry'=>'Bus, Truck, Lorry'), null, ['placeholder' => 'Pick a vehicle type']) !!}<br><br>
->>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
+                  'Bus, Truck, Lorry'=>'Bus, Truck, Lorry') )!!}@if ($errors->has('vehicle_type'))<p style="color:red;">{!!$errors->first('vehicle_type')!!}</p>@endif
+
                 </div>
-                <div class="form-group">
-                  {!! Form::label('Date:') !!}
-                  {!! Form::input('date','start',null,['class'=> 'form-control'])!!}
-                </div>
-                <div class="form-group">
-                  {!! Form::label('Fee') !!}
-                  {!! Form::text('fee')!!}
-                </div>
+                
+               
 
                 {!! Form:: submit('submit')!!}
                 {!! Form::close()!!}
+                <!--@if(Session::has('flash_message'))
+                  <div class="alert alert-success">
+                    {{ Session::get('flash_message') }}
+                  </div>
+                @endif-->
 
           </div>
       </div>
@@ -171,4 +156,5 @@
         
       });
     </script>
+    
     @endsection
