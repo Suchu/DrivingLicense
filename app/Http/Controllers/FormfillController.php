@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\ApplicantForm;
-use App\Applicant;
-use Image;
 use Input;
-
+use App\Applicant;
+use App\Voucher;
+use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use Session;
+use Image;
 use Mail;
 
 class FormfillController extends Controller
@@ -19,11 +21,17 @@ class FormfillController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /**
+     * Show the edit form for blog post
+     * We create a JsValidator instance based on shared validation rules
+     * @param  string  $post_id
+     * @return Response
+     */
+
+  
     public function form()
     {
        return view('home');
-       
-
 
     }
 
@@ -32,6 +40,7 @@ class FormfillController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     
     public function store(Applicant $appl, ApplicantForm $request)
     {   
@@ -51,61 +60,60 @@ class FormfillController extends Controller
         return $e->getMessage();
     }
 
-    }
+
+    
     public function upload() {
 
      // getting all of the post data
      $file = array('image' => Input::file('image'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    // public function store()
-    // {
-    //     $fill = Input::all();
-    //    return 'done';
-        
-    // }
-
-    /**
+ /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
 
-    // public function store(Applicant $applicant, Request $request)
-    // {
-    //     $a = $applicant->create($request->all());die;
-    //    return 'done';
-    // }
 
-    // public function store(Applicant $appl, ApplicantForm $request)
-    // {
+    public function store(Applicant $appl, ApplicantForm $request)
+    {
+        $input = $request->all();
+        $destinationPath = "";
+        if($request->hasFile('ppimg_filename'))
+        {
+            $destinationPath = $appl->upload($request->file('ppimg_filename'));
+
+            // return ['message'=>file_exists($destinationPath)];
+            // if(!file_exists($destinationPath)){
+            //     mkdir($destinationPath, 0777, true);
+            // }
+
+            // $file = $request->file('ppimg_filename');
+            //$filename = $file->getClientOriginalName();
+            //$request->file('ppimg_filename')->move($destinationPath, $filename);
+        }
+        $input['ppimg_filename'] = $destinationPath;
+
+        $a=$appl->create($input);
+
+        // $a['ppimg_filename'] = $filename;
+        return 'done';
+  
+
+       //$a=$appl->create($request->all());
+       //return view('applicant_display')->with('applicants', $a);
+        // Session::flash('flash_message', 'Task successfully added!');
+
+        // return redirect()->back();
+        //send mail to the user
+        // link = <base_url>/voucher/store/$a->id;
+
+
        
-     // checking file is valid.
-  //   if (Input::file('image_path')->isValid()) {
-  //     $destinationPath = 'uploads'; // upload path
-  //     $extension = Input::file('image_image')->getClientOriginalExtension(); // getting image extension
-  //     $fileName = rand(11111,99999).'.'.$extension; // renameing image
-  //     Input::file('image_path')->move($destinationPath, $fileName); // uploading file to given path
-  //     // sending back with message
-  //     Session::flash('success', 'Upload successfully'); 
-  //     return Redirect::to('upload');
-  //   }
-  //   else {
-  //     // sending back with error message.
-  //     Session::flash('error', 'uploaded file is not valid');
-  //     return Redirect::to('upload');
-  // }
-    //    $a=$appl->create($request->all());die;        
-    //      return 'Done';
-    // }
-    //define the image paths
+
+    } 
+
 
 
 
@@ -122,7 +130,8 @@ class FormfillController extends Controller
     // }
     public function show($id)
     {
-        //
+        $event = Applicant::all();
+        return view('applicant_display')->with('applicants', $event);
     }
 
     /**
@@ -133,7 +142,7 @@ class FormfillController extends Controller
      */
     public function edit($id)
     {
-        //
+      
     }
 
     /**
@@ -145,7 +154,13 @@ class FormfillController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+          
+        // if($id)
+        // {
+        //     $app = Applicant::find($id);
+        //     return view('edit')->with(['applicants' => $app]);
+        // }
+        // return 'error';    
     }
 
     /**

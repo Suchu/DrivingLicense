@@ -16,15 +16,16 @@ class CreateApplicantsTable extends Migration
             $table->increments('id');
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('image');
+            $table->string('ppimage');
+            $table->string('ppimg_filename');
             $table->string('per_address');
             $table->string('temp_address');
             //$table->string('image_name')->unique();
             $table->string('occupation');
             $table->string('gender');
             $table->string('email');
-            $table->integer('phone');
-            $table->integer('mobile');
+            $table->string('phone');
+            $table->string('mobile');
             $table->string('education');
             $table->integer('citizenship');
             $table->string('age');
@@ -33,7 +34,7 @@ class CreateApplicantsTable extends Migration
             $table->string('institution');
             $table->string('trainer');
             $table->string('vehicle_type');
-            $table->string('date');
+            
             $table->string('fee');
             
             $table->string('status');

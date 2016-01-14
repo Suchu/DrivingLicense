@@ -17,9 +17,8 @@ Route::get('/', 'HomeController@index');
 Route::controller('admin', 'AdminController');
 // Route::get('createUser', 'AdminController');
 Route::resource('formfill','FormfillController');
-// Route::get('/', function(){
-// 	echo 'Welcome to admin Panel';
-// });
+//Route::resource('home/applicant_display','FormfillController');
+
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
@@ -28,9 +27,8 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
-//Route::resource('/', 'HomeController');
 
-
+<
 Route::resource('formfill', 'FormfillController');
 
 // for sendgrid
@@ -45,3 +43,7 @@ Route::get('/sendmail', function()
 		->subject('Hi there!  Laravel sent me!');
 	});
 });
+
+//voucher 
+Route::resource('voucher', 'VoucherfillController');
+
