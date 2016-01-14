@@ -4,15 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Requests\ApplicantForm;
-
-use Input;
-use App\Applicant;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ApplicantForm;
 use App\Applicant;
 use Image;
 use Input;
+
+use Mail;
 
 class FormfillController extends Controller
 {
@@ -24,10 +22,9 @@ class FormfillController extends Controller
     public function form()
     {
        return view('home');
-<<<<<<< HEAD
-        
-=======
->>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
+       
+
+
     }
 
     /**
@@ -37,10 +34,28 @@ class FormfillController extends Controller
      */
     
     public function store(Applicant $appl, ApplicantForm $request)
+    {   
+       Input::file('image');
+       $a = $appl->create($request->all());
+      $data = array('name' => $a->firstname);
+    try {
+        
+        Mail::send('welcome', $data, function($message)
     {
-       $a = $appl->create($request->all());die;
-       return 'done';
+        
+        $message->to('sulochana.bhujel92@gmail.com')
+        ->subject('Hi there!  Laravel sent me!');
+    });
+        return 'okey';
+    } catch (\Exception $e) {
+        return $e->getMessage();
+    }
 
+    }
+    public function upload() {
+
+     // getting all of the post data
+     $file = array('image' => Input::file('image'));
     }
 
     /**
@@ -62,15 +77,15 @@ class FormfillController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
+
     // public function store(Applicant $applicant, Request $request)
     // {
     //     $a = $applicant->create($request->all());die;
     //    return 'done';
     // }
-=======
-    public function store(Applicant $appl, ApplicantForm $request)
-    {
+
+    // public function store(Applicant $appl, ApplicantForm $request)
+    // {
        
      // checking file is valid.
   //   if (Input::file('image_path')->isValid()) {
@@ -87,13 +102,13 @@ class FormfillController extends Controller
   //     Session::flash('error', 'uploaded file is not valid');
   //     return Redirect::to('upload');
   // }
-       $a=$appl->create($request->all());die;        
-         return 'Done';
-    }
+    //    $a=$appl->create($request->all());die;        
+    //      return 'Done';
+    // }
     //define the image paths
 
 
->>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
+
 
     /**
      * Display the specified resource.
@@ -101,6 +116,10 @@ class FormfillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // public function create(){
+    //     $vehicles = \DB:table('vehicle_type');
+    //     return view('home')->with('vehicle_type', $vehicles);
+    // }
     public function show($id)
     {
         //

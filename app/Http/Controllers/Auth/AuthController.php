@@ -1,12 +1,15 @@
-<?php
-
-namespace App\Http\Controllers\Auth;
+<?php namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Input;
+
+
 
 class AuthController extends Controller
 {
@@ -28,38 +31,72 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    // public function __construct()
+    // {
+    //     $this->middleware('guest', ['except' => 'getLogout']);
+    // }
+
+    // /**
+    //  * Get a validator for an incoming registration request.
+    //  *
+    //  * @param  array  $data
+    //  * @return \Illuminate\Contracts\Validation\Validator
+    //  */
+    // protected function validator(array $data)
+    // {
+    //     return Validator::make($data, [
+    //         'name' => 'required|max:255',
+    //         'email' => 'required|email|max:255|unique:users',
+    //         'password' => 'required|confirmed|min:6',
+    //     ]);
+    // }
+
+    // /**
+    //  * Create a new user instance after a valid registration.
+    //  *
+    //  * @param  array  $data
+    //  * @return User
+    //  */
+    // protected function create(array $data)
+    // {
+    //     return User::create([
+    //         'name' => $data['name'],
+    //         'email' => $data['email'],
+    //         'password' => bcrypt($data['password']),
+    //     ]);
+    // }
+    // public function __construct(){
+    //     $this->middleware('auth');
+    // }
+
+    public function postLogin(Request $request)
     {
-        $this->middleware('guest', ['except' => 'getLogout']);
+        
+       // return 'login';
+
+        if (\Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')]))
+        {
+           // return 'hi';
+            // return redirect('create-user');
+            return redirect()->intended($this->redirectPath());
+        }
+        return redirect($this->loginPath())
+                        ->withInput($request->only('email'))
+                        ->withErrors([
+                            'email' => $this->getFailedLoginMessage(),
+                            ]);
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+    public function postRegister(Request $request)
     {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
-        ]);
-    }
+        
+    $user_input = $request->all();
+    $user_input['password'] = bcrypt($request->input('password'));
+    $user = User::create($user_input);
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+    return 'user lists';
+
+    // return redirect('');
     }
 }
+

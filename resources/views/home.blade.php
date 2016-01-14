@@ -28,7 +28,7 @@
                  <h2> Fill the form</h2>
                </header>             
         
-                {!! Form::open(array('url'=> 'formfill')) !!}
+                {!! Form::open(array('url'=> 'formfill', 'files'=>true)) !!}
                 {!! Form::hidden('invisible', 'id', array('id' => 'invisible_id'))!!}
                 
                 
@@ -42,36 +42,32 @@
                   {!! Form::text('lastname')!!}@if ($errors->has('lastname'))<p style="color:red;">{!!$errors->last('lastname')!!}</p>@endif
                 </div>
                 <div class="form-group">
-<<<<<<< HEAD
                   {!! Form::label('Address') !!}
                   {!! Form::text('address')!!}
                 </div>
                 <div class="form-group">
                   {!! Form::label('Gender:') !!}
                   Male {!! Form::radio('gender')!!} &nbsp &nbsp Female  {!! Form::radio('gender')!!}
-=======
-                  {!! Form::label('Please upload your passport sized image') !!}
+                </div>
 
-                  {!! Form::file('image'); !!}<br><br>
+                  <div class="form-group">
+                  {!! Form::label('Please upload your passport sized image') !!}
+                  {!! Form::file('image'); !!}
                 </div>
 
                 <div class="form-group">
                   {!! Form::label('Permanent Address') !!}
-                  {!! Form::text('per_address')!!}<br><br>
+                  {!! Form::text('per_address')!!}
                 </div>
                 <div class="form-group">
                   {!! Form::label('Temporary Address') !!}
-                  {!! Form::text('temp_address')!!}<br><br>
+                  {!! Form::text('temp_address')!!}
                 </div>
                 <div class="form-group">
                   {!! Form::label('Occupation') !!}
-                  {!! Form::text('occupation')!!}<br><br>
+                  {!! Form::text('occupation')!!}
                 </div>
-                <div class="form-group">
-                  {!! Form::label('Gender:') !!}
-                  {!! Form::radio('gender','male')!!}{!! Form::label('Male') !!}{!! Form::radio('gender','female')!!}{!! Form::label('Female')!!}<br><br>
->>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
-                </div>
+                
                 <div class="form-group">
                   {!! Form::label('Email Address:') !!}
                   {!! Form::text('email')!!}
@@ -81,7 +77,6 @@
                   {!! Form::text('phone')!!}
                 </div>
                 <div class="form-group">
-<<<<<<< HEAD
                   {!! Form::label('Education') !!}
                   {!! Form::text('education')!!}
                 </div>
@@ -92,38 +87,35 @@
                 <div class="form-group">
                   {!! Form::label('Age') !!}
                   {!! Form::text('age')!!}
-=======
+                </div>
+                <div class="form-group">
                   {!! Form::label('Mobile number:') !!}
-                  {!! Form::text('mobile')!!}<br><br>
+                  {!! Form::text('mobile')!!}
                 </div>
                 <div class="form-group">
                   {!! Form::label('Education Qualification') !!}
-                  {!! Form::text('education')!!}<br><br>
+                  {!! Form::text('education')!!}
                 </div>
                 <div class="form-group">
                   {!! Form::label('Citizenship Number') !!}
-                  {!! Form::text('citizenship')!!}<br><br>
+                  {!! Form::text('citizenship')!!}
                 </div>
-                <div class="form-group">
-                  {!! Form::label('Age') !!}
-                  {!! Form::text('age') !!}<br><br>
->>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
-                </div>
+               
                 <div class="form-group">
                   {!! Form::label('Bloodgroup') !!}
                   {!! Form::text('bloodgroup')!!}
                 </div>
                 <div class="form-group">
-<<<<<<< HEAD
                   {!! Form::label("Father's Name/ Husband's Name") !!}
                   {!! Form::text('relative')!!}
-=======
-                  {!! Form::label("Father's Name/ Husband's Name and Address") !!}
-                  {!! Form::text('relative')!!}<br><br>
->>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
+                </div>
+                  <div class="form-group">
+                  {!! Form::label("Father's Name/ Husband's Name & Address") !!}
+                  {!! Form::text('relative')!!}
+
                 </div>
                 <div class="form-group">
-                  {!! Form::label('Name of the institution you trained from') !!}
+                  {!! Form::label('Name of the institution trained from') !!}
                   {!! Form::text('institution')!!}
                 </div>
                 <div class="form-group">
@@ -131,16 +123,13 @@
                   {!! Form::text('trainer')!!}
                 </div>
                 <div class="form-group">
-                  {!! Form::label('Name of the vehicle you want to get driving license for:') !!}
-<<<<<<< HEAD
-                  {!! Form::radio('vehicle_type')!!}{!! Form::label('motorbike, scooter')!!}{!! Form::radio('vehicle_type')!!}{!! Form::label('car, jeep, van')!!}
-                  {!! Form::radio('vehicle_type')!!}  {!! Form::label('Tempo, Auto Riksa')!!}{!! Form::radio('vehicle_type')!!}{!! Form::label('Tractor')!!}
-                  {!! Form::radio('vehicle_type')!!}{!! Form::label('Mini bus, Mini Truck')!!}{!! Form::radio('vehicle_type')!!}{!! Form::label('Bus, Truck, Lorry')!!}
-=======
-                  {!! Form::select('vehicle_type', array('motorbike,scooter' => 'motorbike, scooter', 'car, jeep, van' => 'car, jeep, van',
+                  {!! Form::label('Name of the vehicle you want to get driving license for:') !!}<br />
+
+                  {!! Form::select('vehicle_type', array('0' => 'Plese Select a vehicle type','motorbike,scooter' => 'motorbike, scooter', 'car, jeep, van' => 'car, jeep, van',
                   'Tempo, Auto Riksa'=> 'Tempo, Auto Riksa', 'Tractor' =>'Tractor','Mini bus, Mini Truck'=>'Mini bus, Mini Truck',
-                  'Bus, Truck, Lorry'=>'Bus, Truck, Lorry'), null, ['placeholder' => 'Pick a vehicle type']) !!}<br><br>
->>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
+                  'Bus, Truck, Lorry'=>'Bus, Truck, Lorry')) !!}
+                 
+                  
                 </div>
                 <div class="form-group">
                   {!! Form::label('Date:') !!}
@@ -150,9 +139,13 @@
                   {!! Form::label('Fee') !!}
                   {!! Form::text('fee')!!}
                 </div>
-
-                {!! Form:: submit('submit')!!}
+               
+                <div class="form-group">
+                {!! Form:: submit('submit',null,['class'=> 'form-button-submit button icon fa-envelope'])!!}
+                </div>
+                
                 {!! Form::close()!!}
+
 
           </div>
       </div>

@@ -38,6 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
+                {{ $name }}
                 <div class="title">Laravel 5</div>
             </div>
         </div>

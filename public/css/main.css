@@ -1336,6 +1336,7 @@
 		width: 400% !important;
 	}*/
 
+	
 	form label {
 		font-weight: 600;
 		text-transform: uppercase;
@@ -1343,11 +1344,12 @@
 		display: block;
 		margin: 0px 0 1em 46px;
     	position: relative;
-    	right: 385px;
+    	right: 410px;
     	text-align: left;
-    	top: 60px;
+    	top: 48px;
     	/*width: 600px;*/
 	}
+
 
 	form input[type="text"],
 	form input[type="email"]
@@ -2517,6 +2519,7 @@
     margin-bottom: -11px !important;
 
   }
+}
 	/*.btn-default{
 		background-color: #ed786a !important;
 		padding: 1em 5em 1em 3em !important;

@@ -25,11 +25,10 @@ class ApplicantForm extends Request
     public function rules()
     {
         return [
-            'firstname' => 'required',
-<<<<<<< HEAD
-=======
+            // 'firstname' => 'required',
+
             //'image' => 'required | mimes:jpeg,jpg,bmp,png | max:1000',
->>>>>>> bfdeb5556f3be8e8284c576f83cb36f9a6804956
+
             // 'lastname' => 'required',
             // 'address' => 'required',
             // 'gender' => 'required',

@@ -13,7 +13,9 @@
 
 
 Route::get('/', 'HomeController@index');
-Route::get('admin', 'AdminController@index');
+//Route::get('admin', 'AdminController@index');
+Route::controller('admin', 'AdminController');
+// Route::get('createUser', 'AdminController');
 Route::resource('formfill','FormfillController');
 // Route::get('/', function(){
 // 	echo 'Welcome to admin Panel';
@@ -30,3 +32,16 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
 Route::resource('formfill', 'FormfillController');
+
+// for sendgrid
+Route::get('/sendmail', function() 
+{
+	$data = array('name' => 'suchu');
+	
+	Mail::send('welcome', $data, function($message)
+	{
+		
+		$message->to('sulochana.bhujel92@gmail.com')
+		->subject('Hi there!  Laravel sent me!');
+	});
+});
