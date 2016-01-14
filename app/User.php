@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -21,6 +22,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var string
      */
+     
     protected $table = 'users';
 
     /**
@@ -36,4 +38,8 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+    public function user_role()
+    {
+        return $this->belongsToMany('App\Role','user_role','user_id','role_id');
+    }
 }
