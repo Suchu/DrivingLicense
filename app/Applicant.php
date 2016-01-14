@@ -19,7 +19,7 @@ class Applicant extends Model
 
     public function exam_applicant()
     {
-    	return $this-.belongsToMany('App\Exam','exam_applicant','exam_id','applicant_id');
+    	return $this->belongsToMany('App\Exam','exam_applicant','exam_id','applicant_id');
     }
 
     public function license()
@@ -36,8 +36,8 @@ class Applicant extends Model
         }
 
         // $file = $request->file('ppimg_filename');
-        $filename = $input->getClientOriginalName();
-        $request->file('ppimg_filename')->move($destinationPath, $filename);
+        //$filename = $input->getClientOriginalName();
+        //$request->file('ppimg_filename')->move($destinationPath, $filename);
 
         return $destinationPath;
     }

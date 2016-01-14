@@ -65,7 +65,7 @@ class FormfillController extends Controller
         $destinationPath = "";
         if($request->hasFile('ppimg_filename'))
         {
-            // $destinationPath = $appl->upload($request->file('ppimg_filename'));
+            $destinationPath = $appl->upload($request->file('ppimg_filename'));
 
             // return ['message'=>file_exists($destinationPath)];
             // if(!file_exists($destinationPath)){
@@ -73,8 +73,8 @@ class FormfillController extends Controller
             // }
 
             // $file = $request->file('ppimg_filename');
-            // $filename = $file->getClientOriginalName();
-            // $request->file('ppimg_filename')->move($destinationPath, $filename);
+            //$filename = $file->getClientOriginalName();
+            //$request->file('ppimg_filename')->move($destinationPath, $filename);
         }
         $input['ppimg_filename'] = $destinationPath;
 
