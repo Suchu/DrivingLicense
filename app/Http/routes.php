@@ -15,6 +15,7 @@
 Route::get('/', 'HomeController@index');
 //Route::get('admin', 'AdminController@index');
 Route::controller('admin', 'AdminController');
+// Route::post('admin/create-user', 'AdminController@postRegister');
 // Route::get('createUser', 'AdminController');
 Route::resource('formfill','FormfillController');
 //Route::resource('home/applicant_display','FormfillController');
@@ -30,6 +31,10 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
 // Route::resource('formfill', 'FormfillController');
+// Route::get('userlists', function()
+// {
+// 	return view('Admin/userlists');
+// });
 
 // for sendgrid
 Route::get('/sendmail', function() 

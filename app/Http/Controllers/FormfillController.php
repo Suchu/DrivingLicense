@@ -52,7 +52,7 @@ class FormfillController extends Controller
         Mail::send('welcome', $data, function($message)
     {
         
-        $message->to('sulochana.bhujel92@gmail.com')
+        $message->to('samrita.grg20@gmail.com')
         ->subject('Hi there!  Laravel sent me!');
     });
         return 'okey';
