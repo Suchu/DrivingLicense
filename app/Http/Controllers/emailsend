@@ -1,0 +1,51 @@
+//   public function store(Applicant $appl, ApplicantForm $request)
+  //   {   
+  //       $a = $appl->create($request->all());
+  //   //   $data = array('name' => $a->firstname);
+  //   // try {
+        
+  //   // //     Mail::send('welcome', $data, function($message)
+  //   // // {
+        
+  //   // //     $message->to('sulochana.bhujel92@gmail.com')
+  //   // //     ->subject('Hi there!  Laravel sent me!');
+  //   // //     return 'done';
+  //   // // });
+  //   // //    Input::file('image');
+    
+  //     $data = array('name' => $a->firstname);
+  //    try {
+        
+  //       Mail::send('welcome', $data, function($message)
+  //   {
+        
+  //       $message->to('samrita.grg20@gmail.com')
+  //       ->subject('Hi there!  Laravel sent me!');
+  //   });
+  //   //     $email = $a->email;
+  //   //     $firstname = $a->firstname;
+  //   //     $data['link'] = url('/').'/formfill/voucher/'.$a->id;
+  //   //      \Mail::send('welcome', $data, function ($m) use ($email, $firstname) {
+  //   //         //$m->from('drivinglicense@app.com', 'Your Application');
+
+  //   //         $m->to('samrita.grg20@gmail.com', 'Samrita')->subject('Your Reminder!');
+  //   //     });
+  //   //     return 'okey';
+  //   // } catch (\Exception $e) {
+  //   //     return $e->getMessage();
+  //   // }
+  // }
+
+
+
+
+
+
+
+       //$a=$appl->create($request->all());
+       //return view('applicant_display')->with('applicants', $a);
+        // Session::flash('flash_message', 'Task successfully added!');
+
+        // return redirect()->back();
+        //send mail to the user
+        // link = <base_url>/voucher/store/$a->id;
