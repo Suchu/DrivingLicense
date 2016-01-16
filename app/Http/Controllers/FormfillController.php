@@ -5,16 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\ApplicantForm;
-
 use Input;
 use App\Applicant;
 use App\Voucher;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Session;
-
 use Image;
-
+use Mail;
 
 class FormfillController extends Controller
 {
@@ -31,7 +29,7 @@ class FormfillController extends Controller
      */
 
   
-    public function form()
+    public function index()
     {
        return view('home');
 
@@ -42,14 +40,32 @@ class FormfillController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+    
+    public function store(Applicant $appl, ApplicantForm $request)
+    {   
+       Input::file('image');
+       $a = $appl->create($request->all());
+      $data = array('name' => $a->firstname);
+    try {
+        
+        Mail::send('welcome', $data, function($message)
     {
-        // if(Auth::applicants()->hasVoucher('applicants_id'))
-        // {
-        // $all_voucher = Voucher::lists('applicants_id', 'id');
-        // return view('applicant_display')->with('vouchers', $all_roles);
-        // }
-       
+        
+        $message->to('samrita.grg20@gmail.com')
+        ->subject('Hi there!  Laravel sent me!');
+    });
+        return 'okey';
+    } catch (\Exception $e) {
+        return $e->getMessage();
+    }
+  }
+
+    
+    public function upload() {
+
+     // getting all of the post data
+     $file = array('image' => Input::file('image'));
     }
 
  /**
@@ -59,43 +75,45 @@ class FormfillController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function store(Applicant $appl, ApplicantForm $request)
-    {
-        $input = $request->all();
-        $destinationPath = "";
-        if($request->hasFile('ppimg_filename'))
-        {
-            $destinationPath = $appl->upload($request->file('ppimg_filename'));
 
-            // return ['message'=>file_exists($destinationPath)];
-            // if(!file_exists($destinationPath)){
-            //     mkdir($destinationPath, 0777, true);
-            // }
+    // public function store(Applicant $appl, ApplicantForm $request)
+    // {
+    //     $input = $request->all();
+    //     $destinationPath = "";
+    //     if($request->hasFile('ppimg_filename'))
+    //     {
+    //         $destinationPath = $appl->upload($request->file('ppimg_filename'));
 
-            // $file = $request->file('ppimg_filename');
-            //$filename = $file->getClientOriginalName();
-            //$request->file('ppimg_filename')->move($destinationPath, $filename);
-        }
-        $input['ppimg_filename'] = $destinationPath;
+    //         // return ['message'=>file_exists($destinationPath)];
+    //         // if(!file_exists($destinationPath)){
+    //         //     mkdir($destinationPath, 0777, true);
+    //         // }
 
-        $a=$appl->create($input);
+    //         // $file = $request->file('ppimg_filename');
+    //         //$filename = $file->getClientOriginalName();
+    //         //$request->file('ppimg_filename')->move($destinationPath, $filename);
+    //     }
+    //     $input['ppimg_filename'] = $destinationPath;
 
-        // $a['ppimg_filename'] = $filename;
-        return 'done';
+    //     $a=$appl->create($input);
+
+    //     // $a['ppimg_filename'] = $filename;
+    //     return 'done';
   
 
-       //$a=$appl->create($request->all());
-       //return view('applicant_display')->with('applicants', $a);
-        // Session::flash('flash_message', 'Task successfully added!');
+    //    //$a=$appl->create($request->all());
+    //    //return view('applicant_display')->with('applicants', $a);
+    //     // Session::flash('flash_message', 'Task successfully added!');
 
-        // return redirect()->back();
-        //send mail to the user
-        // link = <base_url>/voucher/store/$a->id;
+    //     // return redirect()->back();
+    //     //send mail to the user
+    //     // link = <base_url>/voucher/store/$a->id;
 
 
        
 
-    } 
+    // } 
+
 
 
 
@@ -106,6 +124,10 @@ class FormfillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // public function create(){
+    //     $vehicles = \DB:table('vehicle_type');
+    //     return view('home')->with('vehicle_type', $vehicles);
+    // }
     public function show($id)
     {
         $event = Applicant::all();

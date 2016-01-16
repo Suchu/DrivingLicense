@@ -19,8 +19,11 @@ class HomeController extends Controller
      */
     public function index()
 
-    {
-        return view('home');
+
+    { 
+        return view('home'); 
+
+    
 
     }
 
@@ -30,13 +33,14 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+
     public function create()
+
     {
         
        //
         
     }
-
 
     /**
      * Store a newly created resource in storage.

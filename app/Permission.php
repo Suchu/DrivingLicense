@@ -2,15 +2,23 @@
 
 namespace App;
 
+
+use Illuminate\Database\Eloquent\Model;
+
+
 use Zizaco\Entrust\EntrustPermission;
 
 class Permission extends EntrustPermission
 {
-	 protected $fillable = [
+
+	protected $fillable = [
         'name',
         'display_name',
         'description',
-        'roles_list'
-
+        'permission_list'
     ];
+
 }
+
+	 
+

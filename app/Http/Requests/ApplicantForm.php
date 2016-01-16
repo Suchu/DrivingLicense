@@ -27,6 +27,22 @@ class ApplicantForm extends Request
     public function rules()
     {
         return [
+
+            // 'firstname' => 'required',
+
+            //'image' => 'required | mimes:jpeg,jpg,bmp,png | max:1000',
+
+            // 'lastname' => 'required',
+            // 'address' => 'required',
+            // 'gender' => 'required',
+            // 'email' => 'required|email|unique:users'
+            // 'phone' => 'required',
+            // 'education' => 'required',
+            // 'citizenship' => 'required',
+            // 'age' => 'required',
+            // 'bloodgroup' => 'required',
+            // 'lastname' => 'required',
+
              // 'firstname' => 'required|max:50|alpha',
              // 'lastname' => 'required|alpha',
              // //'image' => 'required ',             
@@ -43,12 +59,10 @@ class ApplicantForm extends Request
              // 'bloodgroup' => 'required',
              // 'relative' => 'required|',
              // 'vehicle_type' => 'required',           
-             // 'fee' => 'required',
-             // 'status' => 'in:0,1,2',
-             // 'license_type'=>'required',
-             //'voucher_id'=>'required|numeric',
+             
 
            
+
         ];
     }
      // Here we can do more with the validation instance...

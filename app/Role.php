@@ -2,6 +2,7 @@
 
 namespace App;
 
+
 use Zizaco\Entrust\EntrustRole;
 
 class Role extends EntrustRole
@@ -12,4 +13,5 @@ class Role extends EntrustRole
         'description',
         'permission_list'
     ];
+
 }
