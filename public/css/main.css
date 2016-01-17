@@ -15,6 +15,7 @@
 		border: 0;
 		font-size: 100%;
 		font: inherit;
+		/*display:inline;*/
 		vertical-align: baseline;
 	}
 
@@ -1342,11 +1343,11 @@
 		text-transform: uppercase;
 		color: #888;
 		display: block;
-		margin: 0px 0 1em 46px;
-    	position: relative;
-    	right: 410px;
+		margin: -0px 0 3px 17px;
+    	/*position: relative;*/
+    	/*right: 410px;*/
     	text-align: left;
-    	top: 48px;
+    	/*top: 48px;*/
     	/*width: 600px;*/
 	}
 
@@ -1462,8 +1463,8 @@
 		-ms-transition: all 0.25s ease-in-out;
 		transition: all 0.25s ease-in-out;
 		-webkit-appearance: none;
-		position: relative;
-		top: 100px;
+		/*position: relative;*/
+		/*top: 100px;*/
 		display: inline-block;
 		background: #ed786a;
 		color: #fff !important;
@@ -1802,7 +1803,7 @@
 		/* Button */
 
 			input[type="button"],
-			input[type="submit"],
+			/*input[type="submit"],*/
 			input[type="reset"],
 			button,
 			.button {
@@ -2524,3 +2525,87 @@
 		background-color: #ed786a !important;
 		padding: 1em 5em 1em 3em !important;
 	}*/
+
+	#responsive-form{
+	max-width:1300px /*-- change this to get your desired form width --*/;
+	margin:0 auto;
+        width:100%;
+}
+.form-row{
+	width: 100%;
+}
+.column-half, .column-full{
+	float: left;
+	position: relative;
+	margin-top: 25px;
+	padding: 0.65rem 2em 0em 2em;
+	width:100%;
+	-webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box
+}
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/**---------------- Media query ----------------**/
+@media only screen and (min-width: 48em) { 
+	.column-half{
+		width: 50%;
+
+
+
+
+		.wpcf7 input[type="text"], .wpcf7 input[type="email"], .wpcf7 textarea {
+	width: 100%;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	-webkit-box-sizing: border-box;
+	 -moz-box-sizing: border-box;
+	      box-sizing: border-box
+}
+.wpcf7 input[type="text"]:focus{
+	background: #fff;
+}
+.wpcf7-submit{
+	float: right;
+	background: #CA0002;
+	color: #fff;
+	text-transform: uppercase;
+	border: none;
+	padding: 8px 20px;
+	cursor: pointer;
+}
+.wpcf7-submit:hover{
+	background: #ff0000;
+}
+span.wpcf7-not-valid-tip{
+	text-shadow: none;
+	font-size: 12px;
+	color: #fff;
+	background: #ff0000;
+	padding: 5px;
+}
+div.wpcf7-validation-errors { 
+	text-shadow: none;
+	border: transparent;
+	background: #f9cd00;
+	padding: 5px;
+	color: #9C6533;
+	text-align: center;
+	margin: 0;
+	font-size: 12px;
+}
+div.wpcf7-mail-sent-ok{
+	text-align: center;
+	text-shadow: none;
+	padding: 5px;
+	font-size: 12px;
+	background: #59a80f;
+	border-color: #59a80f;
+	color: #fff;
+	margin: 0;
+}

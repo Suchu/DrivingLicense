@@ -102,18 +102,30 @@ class AdminController extends Controller
             session()->flash('user_created','The user has been successfully added !');
             $user->roles()->attach($user_role);
 
+            return redirect('admin.display');
+
+            // return view('Admin.userlists')->with('user',$user);
+
             
         }
     }
 
-    public function getNew(){
-        if(\Auth::user()->hasRole('New-entry')){
 
 
-        return view('admin2.applicants');
-        }
-         return redirect('404');
-    }
+    // public function getNew(){
+    //     if(\Auth::user()->hasRole('New-entry')){
+
+
+
+
+    //     return view('admin2.applicants');
+    //     }
+    //      return redirect('404');
+    // }
+
+
+
+
         public function getDisplay()
         {
             if(\Auth::user()->hasRole('admin')){

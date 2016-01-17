@@ -14,7 +14,7 @@ class Applicant extends Model
 
     public function voucher()
     {
-    	return $this->hasMany('App\Voucher','foreign_key');
+    	return $this->hasMany('App\Voucher','applicants_id');
     }
 
     public function exam_applicant()
