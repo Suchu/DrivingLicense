@@ -14,7 +14,7 @@ class Applicant extends Model
 
     public function voucher()
     {
-    	return $this->hasMany('App\Voucher','foreign_key');
+    	return $this->hasMany('App\Voucher','applicants_id');
     }
 
     public function exam_applicant()
@@ -24,7 +24,7 @@ class Applicant extends Model
 
     public function license()
     {
-    	return $this->belongsTo('App\License');
+    	return $this->belongsTo('App\License', 'applicant_id');
     }
 
 

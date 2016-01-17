@@ -50,5 +50,8 @@ Route::get('/sendmail', function()
 });
 
 //voucher 
-Route::resource('voucher', 'VoucherfillController');
+Route::controller('voucher', 'VoucherfillController');
+
+//renew
+Route::controller('renew','RenewlicenseController');
 

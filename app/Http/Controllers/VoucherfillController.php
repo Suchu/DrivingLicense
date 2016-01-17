@@ -18,13 +18,16 @@ class VoucherfillController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id=null)
+    public function getVoucher($id=null)
     {
         if($id == null){
             return '404';
         }
+        $mytime = Carbon::now()->toDateString();
 
-        return view('voucher')->with(['id'=>$id]);
+        
+        
+        return view('voucher')->with(['id'=>$id, 'date' => $mytime]);
     }
 
     /**
@@ -43,14 +46,14 @@ class VoucherfillController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Voucher $vou)
+    public function postVoucher(Request $request, Voucher $vou)
     {
 
        $data = array(
-              'voucher_date' => $request->input('date'),
+              
               'voucher_id' => $request->input('voucher_id'),
               'applicants_id' => $request->input('applicants_id'),
-
+              'status' => 0,
               //'vImage' => $request['voucher_image']
 
           );
@@ -60,7 +63,7 @@ class VoucherfillController extends Controller
 
         $vou->insert($data);
         
-        return Redirect::to('home');
+        //return Redirect::to('home');
     }
 
     /**

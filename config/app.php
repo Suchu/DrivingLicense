@@ -206,6 +206,7 @@ return [
         'Image'     => Intervention\Image\Facades\Image::class,
 
         'Entrust'   => Zizaco\Entrust\EntrustServiceProvider::class,
+        
 
     ],
 
