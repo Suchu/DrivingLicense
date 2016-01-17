@@ -30,15 +30,14 @@
                </header>       
                  
         
-                {!! Form::open(array('url'=> 'voucher')) !!}
+                {!! Form::open(array('url'=> 'voucher/voucher', 'files'=>true)) !!}
                 {!! Form::hidden('applicants_id', 'id', array('id' => 'invisible_id'))!!}
+
+
+                {!! 'Voucher date: ',$date!!}
                 
                 
-                
-                <div class="form-group">
-                  {!! Form::label('Date of voucher payment:') !!}
-                  {!! Form::input('date','start',null,['class'=> 'form-control'])!!}@if ($errors->has('voucher_date'))<p style="color:red;">{!!$errors->first('voucher_date')!!}</p>@endif
-                </div>
+                 
                 <div class="form-group">
                   {!! Form::label('Voucher ID:') !!}
                   {!! Form::text('voucher_id')!!}@if ($errors->has('voucher_id'))<p style="color:red;">{!!$errors->first('voucher_id')!!}</p>@endif

@@ -24,7 +24,7 @@ class Applicant extends Model
 
     public function license()
     {
-    	return $this->belongsTo('App\License');
+    	return $this->belongsTo('App\License', 'applicant_id');
     }
 
 

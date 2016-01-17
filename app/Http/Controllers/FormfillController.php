@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Session;
 use Image;
 use Mail;
+use Carbon\Carbon;
 
 class FormfillController extends Controller
 {
@@ -42,31 +43,35 @@ class FormfillController extends Controller
      */
 
     
-    public function store(Applicant $appl, ApplicantForm $request)
-    {   
-       Input::file('image');
-       $a = $appl->create($request->all());
-      $data = array('name' => $a->firstname);
-    try {
-        
-        Mail::send('welcome', $data, function($message)
+   public function store(Applicant $appl, ApplicantForm $request)
     {
+        $input = $request->all();
+ 
+
+        $a=$appl->create($input);
+      
         
-        $message->to('samrita.grg20@gmail.com')
-        ->subject('Hi there!  Laravel sent me!');
-    });
-        return 'okey';
-    } catch (\Exception $e) {
-        return $e->getMessage();
+        
+        try {
+
+            $data['link'] = url('/').'/voucher/voucher/'.$a->id;
+            
+        Mail::send('welcome', $data, function ($m) use ($a) {
+            $m->from('drivinglicense@app.com', 'Driving License');
+
+            $m->to($a->email, $a->firstname)->subject('hi laravel sent me!');
+            
+            
+        });
+             return 'Please check your mail'.$a->email;
+        } 
+        catch (\Exception $e) {
+                return $e->getMessage();
+        }
+        
     }
-  }
 
     
-    public function upload() {
-
-     // getting all of the post data
-     $file = array('image' => Input::file('image'));
-    }
 
  /**
      * Store a newly created resource in storage.
