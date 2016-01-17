@@ -3,31 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//use App\Http\Requests\ApplicantForm;
-use Carbon\Carbon;
-use Input;
-use App\Voucher;
-use App\Applicant;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class VoucherfillController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getVoucher($id=null)
+    public function index()
     {
-        if($id == null){
-            return '404';
-        }
-        $mytime = Carbon::now()->toDateString();
-
-        
-        
-        return view('voucher')->with(['id'=>$id, 'date' => $mytime]);
+        //
     }
 
     /**
@@ -46,24 +35,9 @@ class VoucherfillController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function postVoucher(Request $request, Voucher $vou)
+    public function store(Request $request)
     {
-
-       $data = array(
-              
-              'voucher_id' => $request->input('voucher_id'),
-              'applicants_id' => $request->input('applicants_id'),
-              'status' => 0,
-              //'vImage' => $request['voucher_image']
-
-          );
-       //to call upload function for image upload from Applicant.php
-     //   $app = new Applicant;
-     // $dest = $app->upload($request->file('asddf'))
-
-        $vou->insert($data);
-        
-        //return Redirect::to('home');
+        //
     }
 
     /**
@@ -85,8 +59,7 @@ class VoucherfillController extends Controller
      */
     public function edit($id)
     {
-       //
-
+        //
     }
 
     /**
