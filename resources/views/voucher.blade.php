@@ -27,37 +27,68 @@
              <section id="features" class="container">
                <header>
                  <h2> Fill the voucher details</h2>
-               </header>       
+               </header>  
+               <div class="required">Please complete all required fields marked with a *.</div> 
+               {!! 'Date:  ',$date!!}     
                  
-        
+              <div class="form-row">
                 {!! Form::open(array('url'=> 'voucher/voucher', 'files'=>true)) !!}
-                {!! Form::hidden('applicants_id', 'id', array('id' => 'invisible_id'))!!}
+                {!! Form::hidden('applicants_id', $id, array('id' => 'invisible_id'))!!}
 
 
-                {!! 'Voucher date: ',$date!!}
-                
-                
-                 
-                <div class="form-group">
-                  {!! Form::label('Voucher ID:') !!}
+                <div class="column-half">
+
+                  {!! Form::label('Voucher ID*') !!}
                   {!! Form::text('voucher_id')!!}@if ($errors->has('voucher_id'))<p style="color:red;">{!!$errors->first('voucher_id')!!}</p>@endif
 
                 </div>
-                 <div class="form-group">
-                  {!! Form::label('Fee') !!}
+                 <div class="column-half">
+
+                  {!! Form::label('Fee*') !!}
                   {!! Form::text('fee')!!}@if ($errors->has('fee'))<p style="color:red;">{!!$errors->first('fee')!!}</p>@endif
                 </div>
-                <div class="form-group">
-                  {!! Form::label('Image of voucher:') !!}
-                  {!! Form::file('voucher_image')!!}@if ($errors->has('voucher_image'))<p style="color:red;">{!!$errors->first('voucher_image')!!}</p>@endif
+              
+              
+                
+                <div class="column-half">
+                  {!! Form::label('Image of voucher*') !!}
+                  {!! Form::file('voucher_image',['class'=>'input-img'])!!}
+                  <p><img class="preview_image" style="display:none; width:400px;" src=""></p>
+                  @if ($errors->has('voucher_image'))<p style="color:red;">{!!$errors->first('voucher_image')!!}</p>@endif
                 </div>
+              </div>
 
-                {!! Form:: submit('submit')!!}
+          <div class="form-row">
+          <div class="column-full"> 
+        <a><button type='submit' class = 'form-button-submit button icon fa-envelope' > Submit</button></a>
+        </div>
+        </div>
                 {!! Form::close()!!}
 
           </div>
       </div>
-     </div>        
+     </div>    
+     <script type ="text/javascript"> 
+function readURL(input, thisimg) {
+
+     if (input.files && input.files[0]) {
+         var reader = new FileReader();
+
+         reader.onload = function (e) {
+          
+             thisimg.next('p').find('img').attr('src', e.target.result).show();
+         }
+         reader.readAsDataURL(input.files[0]);
+     }else{
+       thisimg.next('p').find('img').attr('src', "").hide();
+     }
+ }
+
+ $(".input-img").change(function(){
+  var thisimg = $(this);
+     readURL(this, thisimg);
+ });
+</script> 
 
     
 

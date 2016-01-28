@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddCodeToApplicantTable' => $baseDir . '/database/migrations/2016_01_19_133152_add_code_to_applicant_table.php',
+    'AddExamIdToApplicantTable' => $baseDir . '/database/migrations/2016_01_19_121336_add_exam_id_to_applicant_table.php',
     'CreateApplicantsTable' => $baseDir . '/database/migrations/2015_12_02_071416_create_applicants_table.php',
     'CreateExamApplicantsTable' => $baseDir . '/database/migrations/2015_12_02_071826_create_exam_applicants_table.php',
     'CreateExamsTable' => $baseDir . '/database/migrations/2015_12_02_071704_create_exams_table.php',

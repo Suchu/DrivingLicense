@@ -16,8 +16,8 @@ class CreateApplicantsTable extends Migration
             $table->increments('id');
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('ppimage');
             $table->string('ppimg_filename');
+            $table->string('cimg_filename');
             $table->string('per_address');
             $table->string('temp_address');
             //$table->string('image_name')->unique();

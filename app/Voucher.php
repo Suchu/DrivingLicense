@@ -31,4 +31,8 @@ public function getVoucherDateAttribute($date)
     return Carbon::parse($date)->format('Y-m-d');
 }
 
+public function user(){
+    return $this -> belongsTo('App/User','ver_UID');
+}
+
 }

@@ -10,36 +10,36 @@ class Applicant extends Model
 
    
 
-    protected $fillable =['firstname','lastname','ppimage','ppimg_filename','per_address','temp_address','occupation','gender','email','phone','mobile','education','citizenship','age','bloodgroup','relative','institution','trainer','vehicle_type','date','status','license_type'];
+    protected $fillable =['firstname','lastname','ppimg_filename','cimg_filename','per_address','temp_address','occupation','gender','email','phone','mobile','education','citizenship','age','bloodgroup','relative','institution','trainer','vehicle_type','date','status','license_type'];
 
-    public function voucher()
+    public function vouchers()
     {
     	return $this->hasMany('App\Voucher','applicants_id');
     }
 
-    public function exam_applicant()
+    public function exams()
     {
-    	return $this->belongsToMany('App\Exam','exam_applicant','exam_id','applicant_id');
+    	return $this->belongsTo('App\Exam');
     }
 
     public function license()
     {
-    	return $this->belongsTo('App\License', 'applicant_id');
+    	return $this->hasOne('App\License', 'applicant_id');
     }
 
 
-    public function upload($input){
-        $destinationPath = url('/')."/offerimages";
-        // return ['message'=>file_exists($destinationPath)];
-        if(!file_exists($destinationPath)){
-            mkdir($destinationPath, 0777, true);
-        }
+//     public function upload($input){
+//         $destinationPath = url('/')."/offerimages";
+//         // return ['message'=>file_exists($destinationPath)];
+//         if(!file_exists($destinationPath)){
+//             mkdir($destinationPath, 0777, true);
+//         }
 
-        // $file = $request->file('ppimg_filename');
-        //$filename = $input->getClientOriginalName();
-        //$request->file('ppimg_filename')->move($destinationPath, $filename);
+//         // $file = $request->file('ppimg_filename');
+//         //$filename = $input->getClientOriginalName();
+//         //$request->file('ppimg_filename')->move($destinationPath, $filename);
 
-        return $destinationPath;
-    }
+//         return $destinationPath;
+//     }
  
 }

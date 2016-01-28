@@ -27,18 +27,18 @@
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="../../index2.html"><b>Admin</b></a>
+        <a href="#"><b>Admin</b></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
          <form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
         {!! csrf_field() !!}
           <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('') }}">
+            <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('') }}">@if ($errors->has('email'))<p style="color:red;">{!!$errors->first('email')!!}</p>@endif
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password" name="password" id="password">
+            <input type="password" class="form-control" placeholder="Password" name="password" id="password">@if ($errors->has('password'))<p style="color:red;">{!!$errors->first('password')!!}</p>@endif
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">

@@ -4,7 +4,7 @@
 @section('content')
       <!-- Header -->
         <div id="header-wrapper">
-          <div id="header" class="container">
+          <!-- <div id="header" class="container"> -->
 
             <!-- Logo -->
               <!-- <h1 id="logo">Get your Driving License</h1>
@@ -20,11 +20,18 @@
                 </ul>
               
 			  </nav>
-		   </div>
+		   <!-- </div> -->
 	</div>
   <div id="features-wrapper">
   
              <section id="features" class="container">
+              <div class = "thank">
+
+              <h1>Thank you!</h1> </div><br />
+              <h3>Check your email  <b><i>{{$email->email}}</i></b>for Voucher Payment.</h3><br /><br />
+              <h4>Form Fee: 200 per person</h4>
+              <p><a href="{{url('/')}}">Back</a></p>
+
              </section>
   <div id = "footer">
         <div id="footer-wrapper">
