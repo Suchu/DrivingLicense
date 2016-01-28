@@ -78,7 +78,12 @@ class AuthController extends Controller
         {
            // return 'hi';
             // return redirect('create-user');
+            $this->validate($request, [
+            'email'=> 'required',
+            'password'=> 'required ',
+        ]);
             return redirect()->intended($this->redirectPath());
+            
         }
         return redirect($this->loginPath())
                         ->withInput($request->only('email'))
@@ -91,11 +96,16 @@ class AuthController extends Controller
     {
         
     $user_input = $request->all();
+    $this->validate($request, [
+            'name'=>'required',
+            'email'=> 'required',
+            'password'=> 'required ',
+        ]);
     $user_input['password'] = bcrypt($request->input('password'));
     $user = User::create($user_input);
     
 
-    return 'user lists';
+    return redirect('auth/login');
 
     // return redirect('');
     }

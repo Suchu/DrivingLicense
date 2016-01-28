@@ -38,6 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
+
                 Thank You for registering. Please fill the voucher details in the following link
 <a href="{{ $link }}">Click Here.</a>
                 <div class="title">Laravel 5</div>

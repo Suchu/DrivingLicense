@@ -12,13 +12,14 @@
 */
 
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->middleware('guest');
 //Route::get('admin', 'AdminController@index');
 Route::controller('admin', 'AdminController');
 // Route::post('admin/create-user', 'AdminController@postRegister');
 // Route::get('createUser', 'AdminController');
 Route::resource('formfill','FormfillController');
 //Route::resource('home/applicant_display','FormfillController');
+Route::controller('renew','RenewlicenseController');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -53,5 +54,5 @@ Route::get('/sendmail', function()
 Route::controller('voucher', 'VoucherfillController');
 
 //renew
-Route::controller('renew','RenewlicenseController');
+// Route::controller('renew','RenewlicenseController');
 

@@ -13,7 +13,7 @@ class Exam extends Model
     /**
      * Get the post that the Voucher belongs to.
      */
-    public function Exam_applicant()
+    public function applicants()
     {
         return $this->hasMany('App\Exam_applicant');
     }

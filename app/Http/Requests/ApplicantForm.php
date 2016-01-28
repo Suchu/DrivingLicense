@@ -28,39 +28,24 @@ class ApplicantForm extends Request
     {
         return [
 
-            // 'firstname' => 'required',
 
-            //'image' => 'required | mimes:jpeg,jpg,bmp,png | max:1000',
-
-            // 'lastname' => 'required',
-            // 'address' => 'required',
-            // 'gender' => 'required',
-            // 'email' => 'required|email|unique:users'
-            // 'phone' => 'required',
-            // 'education' => 'required',
-            // 'citizenship' => 'required',
-            // 'age' => 'required',
-            // 'bloodgroup' => 'required',
-            // 'lastname' => 'required',
-
-             // 'firstname' => 'required|max:50|alpha',
-             // 'lastname' => 'required|alpha',
-             // //'image' => 'required ',             
-             // 'per_address' => 'required|string|min:10',
-             // 'temp_address' => 'required|string|min:5',
-             // 'occupation' => 'required',
-             // 'gender' => 'required|in:male,female',
-             // 'email' => 'required|email|min:6|max:200|unique:users',
-             // 'phone' => 'required|numeric|digits_between:8,25',
-             // 'mobile'=>'numeric|digits_between:8,25|nepal_phone',
-             // 'education' => 'required',
-             // 'citizenship' => 'required|numeric|min:3',
-             // 'age' => 'required|numeric|min:18',
-             // 'bloodgroup' => 'required',
-             // 'relative' => 'required|',
-             // 'vehicle_type' => 'required',           
-             
-
+            'firstname' => 'required|max:50|alpha',
+             'lastname' => 'required|alpha',
+             'ppimg_filename' => 'required|mimes:jpeg,jpg,bmp,png ',
+             'cimg_filename' => 'required|mimes:jpeg,jpg,bmp,png ',             
+             'phone' => 'required|numeric|digits_between:8,25',
+             'mobile'=>'numeric|digits_between:8,25|nepal_phone',
+             'email' => 'required|email|min:6|max:200|unique:users',
+             'per_address' => 'required|string',
+             'temp_address' => 'required|string',
+             //'occupation' => 'required',
+             'gender' => 'required|in:male,female',        
+             //'education' => 'required',
+             'citizenship' => 'required|numeric',
+             'age' => 'required|numeric|min:18|max:60',
+             'bloodgroup' => 'required',
+             //'relative' => 'required|',
+             'vehicle_type' => 'required',
            
 
         ];

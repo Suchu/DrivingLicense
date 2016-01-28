@@ -18,7 +18,6 @@
 		/*display:inline;*/
 		vertical-align: baseline;
 	}
-
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block;
 	}
@@ -2195,6 +2194,10 @@
 				letter-spacing: 2px;
 				display: block;
 				padding: 1em 0 1em 0;
+				width: 100%;
+			}
+			.column-half, .column-full{
+				padding: 0 !important;
 			}
 
 		/* List */
@@ -2551,9 +2554,12 @@
 }
 
 /**---------------- Media query ----------------**/
-@media only screen and (min-width: 48em) { 
+@media only screen and (min-width: 50em) { 
 	.column-half{
 		width: 50%;
+		}
+}
+
 
 
 
@@ -2608,4 +2614,39 @@ div.wpcf7-mail-sent-ok{
 	border-color: #59a80f;
 	color: #fff;
 	margin: 0;
+}
+
+.fname{
+	text-transform: uppercase;
+}
+.lname{
+	text-transform: uppercase;
+
+}
+.required{
+	text-align: left;
+}
+.thank{
+	font-size: 80px !important;
+
+}
+nav#nav ul li {
+    text-align: left !important ;
+}
+
+.main-header>.navbar{
+	min-height: 80px !important;
+	padding-top: 1em;
+	font-size: 50px;
+}
+.search-input{
+	display: inline-block !important;
+	width: 70% !important;
+}
+.search-input-btn{
+	padding: 10px 20px;
+    margin-left: 10px;
+}
+.search-license-wrapper{
+	text-align: left;
 }

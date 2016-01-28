@@ -13,7 +13,8 @@ use Carbon\Carbon;
 use Session;
 use Image;
 use Mail;
-use Carbon\Carbon;
+use DB;
+
 
 class FormfillController extends Controller
 {
@@ -34,6 +35,7 @@ class FormfillController extends Controller
     {
        return view('home');
 
+
     }
 
     /**
@@ -45,31 +47,55 @@ class FormfillController extends Controller
     
    public function store(Applicant $appl, ApplicantForm $request)
     {
-        $input = $request->all();
- 
+
+       $input = $request->all();
+       $destinationPath = "";
+
+        //passport sized image
+        $ppimg = "";
+        if($request->hasFile('ppimg_filename')){
+            $ppimg = $this->upload($request->file('ppimg_filename'));
+        }
+        $input['ppimg_filename'] = $ppimg;
+
+        //citizenship image
+        $cimg = "";
+        if($request->hasFile('cimg_filename')){
+            $cimg = $this->upload($request->file('cimg_filename'));
+        }
+        $input['cimg_filename'] = $cimg;
+        $input['status'] = 0;
+
+        $cnumber = Applicant::where('citizenship', $input['citizenship'])->where('status', '!=', 0)->first();
+        if($cnumber){
+            return 'You cannot apply for 3 months!';
+             }
 
         $a=$appl->create($input);
-      
-        
+
         
         try {
+        
 
             $data['link'] = url('/').'/voucher/voucher/'.$a->id;
             
         Mail::send('welcome', $data, function ($m) use ($a) {
             $m->from('drivinglicense@app.com', 'Driving License');
 
-            $m->to($a->email, $a->firstname)->subject('hi laravel sent me!');
+            $m->to($a->email, $a->firstname)->subject('Hi! Welcome.');
+        
             
             
         });
-             return 'Please check your mail'.$a->email;
+             return view('thankyou')->with('email', $a);
         } 
         catch (\Exception $e) {
                 return $e->getMessage();
         }
-        
     }
+         
+
+    
 
     
 
@@ -133,10 +159,15 @@ class FormfillController extends Controller
     //     $vehicles = \DB:table('vehicle_type');
     //     return view('home')->with('vehicle_type', $vehicles);
     // }
-    public function show($id)
+    public function show()
     {
-        $event = Applicant::all();
-        return view('applicant_display')->with('applicants', $event);
+        
+    $applicants=Applicant::all();
+
+
+        if($applicants->license_type ='passed')
+            return view('results')->with('result',$applicants);
+    
     }
 
     /**
@@ -174,6 +205,17 @@ class FormfillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function upload($file){
+        $date = date('Y_m_d_H_i_s');
+        $destinationPath = "images/";
+        //$file = $request->file('ppimg_filename');
+        $filename = $date.'_'.$file->getClientOriginalName();
+        $file->move($destinationPath, $filename);
+
+        return $destinationPath.$filename;
+    }
+
+
     public function destroy($id)
     {
         //
